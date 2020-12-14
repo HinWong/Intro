@@ -4,7 +4,7 @@ import Foundation
 
 
 func noInputNoOutput() {
-    print("This function has no parameter and or return")
+    print("This function has no parameter and no return")
 }
 
 /// Function with one parameter that is an Int
