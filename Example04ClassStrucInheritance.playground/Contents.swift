@@ -77,25 +77,3 @@ teleportingCar.teleport(to: "Mt. Everest")
 
 
 
-
-
-
-/// For later
-/// Solve multi-inheritance issue with protocol
-/// We can make a class that can be both a Pet and a Predator using a protocol
-//
-//protocol TeleportingCarProtocol: Car {
-//    func teleport(to location: String)
-//}
-//
-//extension TeleportingCarProtocol {
-//    func teleport(to location: String) {
-//        print("Protocol: Teleported to \(location) at speed \(speed * 0)")
-//    }
-//}
-//
-//class MultiInheritanceCar: FlyingCar, TeleportingCarProtocol { }
-//
-//let myMultiCar = MultiInheritanceCar(speed: 70)
-//myMultiCar.fly()
-//myMultiCar.teleport(to: "Mt. Tibidabo")
