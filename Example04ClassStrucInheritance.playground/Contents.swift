@@ -39,22 +39,21 @@ teleportingCar.teleport(to: "Mt. Everest")
 
 
 // MARK: - Question
-/* Make a base class called Animal with:
-    1) func eat() that prints "eating"
-    2) property age: Int, and weight: Int
+/**
+# Make a base class called Animal with:
+    1. func eat() that prints "eating"
+    2. property age: Int, and weight: Int
         - starts out at age 0 and weight 10
-    3) func growOneYear() that increase weight by 10 and age by 1
-    4) func stats() that prints out age and weight
+    3. func growOneYear() that increase weight by 10 and age by 1
+    4. func stats() that prints out age and weight
  
- * Make a sub class of Animal called Pet with function play() that prints "playing"
+# Make a sub class of Animal called Pet with function play() that prints "playing"
  
- * Make a sub class of Animal called Predator with:
+# Make a sub class of Animal called Predator with:
     1) funciton hunt() that prints "hunting"
         - hunt() function should call eat() function 1 out of 2 times randomly
  
  */
-
-
 
 
 
