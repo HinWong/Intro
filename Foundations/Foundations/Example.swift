@@ -10,7 +10,7 @@ import Foundation
 class Example {
     
     func sum(num1: Int, num2: Int) -> Int {
-        return 0
+        return num1 + num2
     }
     
     func isPrime(num: Int) -> Bool {
@@ -26,6 +26,12 @@ class Example {
     func addExclaimMarkToWords(words: String) -> String {
 
         return ""
+    }
+    
+    /// use string index
+    func isPalindrome(word: String) -> Bool {
+        
+        return false
     }
     
     /// "cat" -> ["ac", "ca", "at", "ta", "tc", "ct"]

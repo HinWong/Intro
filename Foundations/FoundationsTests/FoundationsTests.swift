@@ -20,7 +20,7 @@ class FoundationsTests: XCTestCase {
     
     func testIsPrime() {
         let isPrimeTestValue = tester.isPrime(num: 13)
-        XCTAssert(isPrimeTestValue == false, "isPrime(13) should return false")
+        XCTAssert(isPrimeTestValue == true, "isPrime(13) should return false")
     }
     
     func testSplit() {
@@ -40,6 +40,11 @@ class FoundationsTests: XCTestCase {
     func testExclaim() {
         let result = tester.addExclaimMarkToWords(words: testString)
         XCTAssert(result == "Hello! World! where! is! food!")
+    }
+    
+    func testIsPali() {
+        let result = tester.isPalindrome(word: "racecar")
+        XCTAssertTrue(result, "\"racecar\" should return true)")
     }
     
     func testCombo() {
