@@ -1,0 +1,143 @@
+import Foundation
+
+// MARK: - EXAMPLES
+func iterateWord(word: String) {
+    for char in word {
+        print(char)
+    }
+}
+//iterateWord(word: "Abcde")
+func iterateWithIndex(word: String) {
+    let startIndex = word.startIndex
+    for index in 0..<word.count {
+        let nextIndex = word.index(startIndex, offsetBy: index)
+        print(word[nextIndex])
+    }
+}
+//iterateWithIndex(word: "Abcde")
+/// A set does not contain duplicates and is in random order
+func removeDuplicate(numbers: [Int]) {
+    var numberSet = Set<Int>()
+    for num in numbers {
+        numberSet.insert(num)
+    }
+    print(numberSet)
+}
+//removeDuplicate(numbers: [1,1,2,3,3,3,4])
+
+func numberExistsInSet(mySet: Set<Int>, number: Int) -> Bool {
+    return mySet.contains(number)
+}
+let daysOff: Set<Int> = [24, 25, 1, 2, 3]
+//print(numberExistsInSet(mySet: daysOff, number: 23))
+
+func personInfo(name: String, location: String) -> [String: String] {
+//    let infoDictionary: [String: String] = [:]
+    var infoDictionary = [String:String]()
+    infoDictionary["name"] = name
+    infoDictionary["location"] = location
+    return infoDictionary
+}
+//print(personInfo(name: "Michael", location: "Chicago"))
+
+
+// MARK: - QUESTIONS
+/// 1. Write a function that returns an array of the positions of a character in the word
+func positionOf(character: Character, in word: String) -> [Int] {
+    var indices = [Int]()
+    let startIndex = word.startIndex
+    for index in 0..<word.count {
+        let nextIndex = word.index(startIndex, offsetBy: index)
+        if (character == word[nextIndex]){
+            indices.append(index)
+        }
+    }
+    return indices
+}
+// print(positionOf(character: "l", in: "Hello"))  // -> [2, 3]
+
+
+/// 2. Write a function that takes a string and returns a string without any duplicated letters
+/// "hello" -> "helo"
+
+func removeDuplicates(word: String) -> String {
+    var stringSet = Set<Character>()
+    var finalString = ""
+    for letter in word {
+        stringSet.insert(letter)
+    }
+    for letter in stringSet {
+        finalString.append(letter)
+    }
+    return finalString
+}
+
+// print(removeDuplicates(word: "Hello"))
+
+
+/// 3.  Write a function that returns a dictionary with the (key, value) storing (character, count of character) for a word
+/// HELLO -> [H: 1, E: 1, L: 2, O: 1]
+
+func createDictionary(word: String) -> [Character: Int]{
+    var instanceDictionary = [Character: Int]()
+    for letter in word {
+        if (instanceDictionary[letter] == nil){
+            instanceDictionary[letter] = 1
+        } else {
+            instanceDictionary[letter]! += 1
+        }
+    }
+    return instanceDictionary
+}
+
+// print(createDictionary(word: "Hello"))
+
+
+/// 4.  Write isPalindrome that returns a boolean
+
+func isPalindrome(word: String) -> Bool {
+    // var start = word.startIndex
+    // var end = word.endIndex
+    for i in 0..<word.count{
+        let start = word.index(word.startIndex, offsetBy: i)
+        let end = word.index(word.endIndex, offsetBy: (i * -1) - 1)
+        if (word[start] != word[end]){
+            return false
+        }
+    }
+    return true
+}
+
+print(isPalindrome(word: "racecar"))
+
+/// 5. Write a funciton that returns the most frequently occurring letter in a string
+/// HELLO -> "L"
+
+func mostFrequentLetter(word: String) -> [Character: Int] {
+    var dictionary = [Character: Int]()
+    for letter in word {
+        if (dictionary[letter] == nil){
+            dictionary[letter] = 1
+        } else {
+            dictionary[letter]! += 1
+        }
+    }
+    // var startIndex = dictionary.index(dictionary.startIndex, offsetBy: 1)
+    var ans = [Character: Int]()
+    // var secondKey = ' '
+    for (key,value) in dictionary {
+        if (ans == nil){
+            ans = [key: value]
+            // secondKey = key
+        } else if (value > ans[secondKey]) {
+            ans = [key: value]
+            // secondKey = key
+        }
+    }
+    return ans
+}
+
+print(mostFrequentLetter(word: "Hello"))
+
+/// 6.  Write a function that takes an array of Int and returns true if there is any two numbers that sums to 0
+/// Use set or dictionary
