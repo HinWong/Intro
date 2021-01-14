@@ -1,0 +1,136 @@
+import Foundation
+
+// MARK: - EXAMPLES
+
+func noInputNoOutput() {
+    print("This function has no parameter and no return")
+}
+
+/// Function with one parameter that is an Int
+/// Parameter is labeled "year" inside the function and labeled "when" outside of the function
+func pastOrFuture(when year: Int) {
+    if year > 2020 {
+        print("\(year) is in the future")
+    } else {
+        print("\(year) was in the past")
+    }
+}
+// pastOrFuture(when: 2021)
+
+
+/// If there is only one label, then external label will be the same as internal label
+func firstHalf(original: [String]) -> [String] {
+    let result = array.dropLast(array.count/2)
+    return Array(result)
+}
+let array = ["1", "2", "3", "4", "5", "6", "7"]
+// print(firstHalf(original: array))
+
+
+/// Use enumberated to access the index and element
+func printIndexAndElement(array: [String]) {
+    for (index, element) in array.enumerated() {
+        print("Index: \(index) and Element: \(element).")
+    }
+}
+// printIndexAndElement(array: ["firstName", "lastName"])
+
+
+// MARK: - QUESTIONS
+/// 1. Write a function that takes an array of numbers and returns an array with each of the numbers multiplied by 2
+
+func multiplyByTwo(numbers original: [Int]) -> [Int]{
+  var duplicate = original
+  for (index, element) in original.enumerated() {
+    duplicate[index] = element * 2
+  }
+  return duplicate
+}
+
+let arrayOfNumbers = [1, 2, 3, 4]
+print(multiplyByTwo(numbers: arrayOfNumbers))
+
+
+/// 2. Write a function to return the last half of the array
+
+func lastHalf(original: [String]) -> [String] {
+    let result = array.dropFirst(array.count/2)
+    return Array(result)
+}
+let arrayDropFirst = ["1", "2", "3", "4", "5", "6", "7"]
+print(lastHalf(original: arrayDropFirst))
+
+
+/// 3. Write a function that can be called with the commented code below and return [5, 6, 7, 8, 9, 10]
+
+func createCustomArray(from start: Int, to end: Int) -> [Int] {
+  var result = [Int]()
+  for element in start..<end+1 {
+    result.append(element)
+  }
+  return result
+}
+
+let customArray = createCustomArray(from: 5, to: 10)
+print(customArray)
+
+/// 4. Write a function that takes in two array and returns a combined array from adding each element at the same positions together
+/// Input [2,3,4] and [7,6,5] will return [9,9,9]
+
+func combineArrays(array1: [Int], array2: [Int]) -> [Int]{
+  var result = [Int]()
+  for index in 0 ..< array1.count{
+    result.append(array1[index] + array2[index])
+  }
+  return result
+}
+
+print(combineArrays(array1: [2,3,4], array2: [7,6,5]))
+
+
+/// 5. Create this 2-D array using for loops
+/*
+    [[1,2,3],
+    [4,5,6],
+    [7,8,9]]
+ */
+
+func create2DArray(from start: Int, to end: Int) -> [[Int]] {
+  var result = [[Int]]()
+  var innerResult = [Int]()
+
+  for element in start..<end+1 {
+    if (element % 3 != 0) {
+      innerResult.append(element)
+      if (element == end){
+      result.append(innerResult)
+      }
+    } else {
+      innerResult.append(element)
+      result.append(innerResult)
+      innerResult = [Int]()
+    }
+  }
+  return result
+}
+
+let twoDimensionalArray = create2DArray(from: 1, to: 9)
+print(twoDimensionalArray)
+
+/// 6. Write a function that returns the number of pairs of elements that sums up to 0
+/// Input [1,2,3,-1,-2,-4] -> Output 2
+
+func findPairs(nums: [Int]) -> Int {
+  var numberOfPairs = 0
+  for (index, element) in nums.enumerated() {
+    if (element > 0){
+      if (nums.contains(element * -1)){
+        numberOfPairs = numberOfPairs + 1
+      }
+    }
+  }
+  return numberOfPairs
+}
+
+let pairsArray = [1,2,3,-1,-2,-4]
+print(findPairs(nums: pairsArray))
