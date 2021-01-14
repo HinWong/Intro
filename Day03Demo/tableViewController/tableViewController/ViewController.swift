@@ -7,48 +7,22 @@
 
 import UIKit
 
+//MVC
+//Model: hold the data
+//View: where you draw
+//Controller: determines the behavior of the view, updates model/view
+
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var myTableView: UITableView!
     
     var people = [
-        Person(name: "luke", profession: "dev"),
-        Person(name: "luke2", profession: "dev2"),
-        Person(name: "luke3", profession: "dev3"),
-        Person(name: "luke4", profession: "dev4"),
-        Person(name: "luke5", profession: "dev5"),
-        Person(name: "luke6", profession: "dev6"),
-        Person(name: "luke", profession: "dev"),
-        Person(name: "luke2", profession: "dev2"),
-        Person(name: "luke3", profession: "dev3"),
-        Person(name: "luke4", profession: "dev4"),
-        Person(name: "luke5", profession: "dev5"),
-        Person(name: "luke6", profession: "dev6"),
-        Person(name: "luke", profession: "dev"),
-        Person(name: "luke2", profession: "dev2"),
-        Person(name: "luke3", profession: "dev3"),
-        Person(name: "luke4", profession: "dev4"),
-        Person(name: "luke5", profession: "dev5"),
-        Person(name: "luke6", profession: "dev6"),
-        Person(name: "luke", profession: "dev"),
-        Person(name: "luke2", profession: "dev2"),
-        Person(name: "luke3", profession: "dev3"),
-        Person(name: "luke4", profession: "dev4"),
-        Person(name: "luke5", profession: "dev5"),
-        Person(name: "luke6", profession: "dev6"),
-        Person(name: "luke", profession: "dev"),
-        Person(name: "luke2", profession: "dev2"),
-        Person(name: "luke3", profession: "dev3"),
-        Person(name: "luke4", profession: "dev4"),
-        Person(name: "luke5", profession: "dev5"),
-        Person(name: "luke6", profession: "dev6"),
-        Person(name: "luke", profession: "dev"),
-        Person(name: "luke2", profession: "dev2"),
         Person(name: "luke3", profession: "dev3"),
         Person(name: "luke4", profession: "dev4"),
         Person(name: "luke5", profession: "dev5"),
         Person(name: "luke6", profession: "dev6"),
     ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         myTableView.backgroundColor = .cyan
