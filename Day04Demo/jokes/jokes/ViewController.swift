@@ -35,6 +35,7 @@ class ViewController: UIViewController {
                     let decoder = JSONDecoder()
                     let joke = try? decoder.decode(Joke.self, from: data)
                     self.currentJoke = joke
+                    print(joke?.flags.political)
                 }
             }
             task.resume()
@@ -50,8 +51,19 @@ struct Joke: Decodable {
     let category: String
     let joke: String?
     let notAnything: String?
-    
+//    let flags: [String: Bool]
+    let flags: Flag
 }
+
+struct Flag: Decodable {
+    let nsfw: Bool
+    let religious: Bool
+    let political: Bool
+    let racist: Bool
+    let sexist: Bool
+    let explicit: Bool
+}
+
 
 /**
 Single part joke
