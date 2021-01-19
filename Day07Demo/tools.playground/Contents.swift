@@ -64,12 +64,13 @@ class PowerTool: Tool {
 // associated value for enum
 enum ElectricType {
     case electricHammer(String)
-    case electricScrewdriver(Int)
+    case electricScrewdriver(Int, String)
     case electricDril(String)
     case electricSaw(String)
 }
 
-let electricTool = ElectricType.electricSaw("Model: XP34")
+let electricTool = ElectricType.electricScrewdriver(34, "Model: XP")
+let electricToolTwo = ElectricType.electricSaw("Model: XP44")
 
 let myPowerTool = PowerTool()
 myPowerTool.type = electricTool
@@ -77,3 +78,17 @@ myPowerTool.type = electricTool
 
 print(myPowerTool.type)
 
+// can't do this with associated value
+//let myValue = myPowerTool.type.rawValue
+
+
+switch myPowerTool.type {
+case .electricDril(let model):
+    print(model)
+case let .electricScrewdriver(modelInt, modelString):
+    print(modelInt, modelString)
+case let .electricSaw(sawModel):
+    print(sawModel)
+default:
+    print("Model unknown")
+}
