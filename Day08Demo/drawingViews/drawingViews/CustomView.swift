@@ -9,7 +9,12 @@ import UIKit
 
 @IBDesignable class CustomView: UIView {
 
-    @IBInspectable var drawMore: Bool = false
+    @IBInspectable var drawMore: Bool = false {
+        didSet {
+            // re-draw
+            setNeedsDisplay()
+        }
+    }
     @IBInspectable var widthOfLine: CGFloat = 1
     // CGRect is where you draw
     // CoreGraphics

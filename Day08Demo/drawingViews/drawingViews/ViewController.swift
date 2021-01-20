@@ -13,10 +13,27 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let myCustomView = CustomView(frame: CGRect(x: 50, y: 50, width: 200, height: 200))
         myCustomView.backgroundColor = .gray
-//        myCustomView.transform = CGAffineTransform(rotationAngle: CGFloat.pi/4)
         view.addSubview(myCustomView)
+        let tapGest = UITapGestureRecognizer(target: self, action: #selector(handleTap(gestReg:)))
+        myCustomView.addGestureRecognizer(tapGest)
+        
+        
+        
+        //        myCustomView.transform = CGAffineTransform(rotationAngle: CGFloat.pi/4)
+        //        UIGestureRecognizer
+        //        UIPinchGestureRecognizer
+        //        UIPanGestureRecognizer
+        //        UISwipeGestureRecognizer
+        //        UIRotationGestureRecognizer
+        //        UIHoverGestureRecognizer
     }
 
+    @objc func handleTap(gestReg: UITapGestureRecognizer) {
+        print("this")
+        if let myCustomView = gestReg.view as? CustomView {
+            myCustomView.drawMore = !myCustomView.drawMore
+        }
+    }
 
 }
 
