@@ -30,6 +30,12 @@ class ViewController: UIViewController {
 
     @objc func handleTap(gestReg: UITapGestureRecognizer) {
         print("this")
+//        switch gestReg.state {
+//        case .began:
+//        case .changed:
+//        case .ended:
+//        }
+        
         if let myCustomView = gestReg.view as? CustomView {
             myCustomView.drawMore = !myCustomView.drawMore
         }
