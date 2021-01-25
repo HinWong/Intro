@@ -103,3 +103,40 @@ class ImageSingleton {
 
 let imageS = ImageSingleton.shared
 let imageS2 = ImageSingleton.shared
+
+
+/// generics
+
+func numTimesTwo(num: Int) -> Int {
+    return num + num
+}
+func numTimesTwo(num: Double) -> Double {
+    return num + num
+}
+
+/// Int
+numTimesTwo(num: 9)
+/// Double
+numTimesTwo(num: 9.0)
+
+
+/// Sort of generic but constraint to be numeric
+func numTimesTwo<T>(num: T) -> T where T: Numeric {
+    return num + num
+}
+numTimesTwo(num: 9)
+
+
+extension Array where Element: Numeric {
+    func doubleElements() -> [Element] {
+        return map { $0 * 2 }
+    }
+}
+let doubled = [1,2,3,4].doubleElements()
+print(doubled)
+
+
+/// sort of generic protocol but contraint to UITableView
+protocol EasyDequeue where Self: UITableView  {
+    func doSomething()
+}
