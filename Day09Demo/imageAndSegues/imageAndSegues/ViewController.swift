@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         "first" : "http://static.tvmaze.com/uploads/images/medium_landscape/1/2668.jpg",
         "second" : "http://static.tvmaze.com/uploads/images/medium_landscape/1/2669.jpg",
         "third" : "http://static.tvmaze.com/uploads/images/original_untouched/1/2671.jpg",
-        "fourth": ""
+        "cellSegue": "http://static.tvmaze.com/uploads/images/original_untouched/1/2671.jpg"
         ]
     
     
@@ -38,6 +38,10 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("performing segue", segue.identifier)
 
+        if let sender = sender as? IndexPath {
+            print("sender is index path \(sender.row)")
+        }
+        
         if let imageVC = segue.destination as? ImageViewController {
             let imageLink = imgURLDictionary[segue.identifier ?? ""]
             if let imageLink = imageLink {

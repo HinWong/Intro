@@ -9,40 +9,42 @@ import UIKit
 
 class CollectionViewController: UICollectionViewController {
 
-    @IBOutlet weak var plusButton: UIBarButtonItem!
+    var currentRowIndex: Int = 0
     
-    @IBAction func plusButtonPressed(_ sender: Any) {
-        currentRowPosition += 1
-        collectionView.scrollToItem(at: IndexPath(row: currentRowPosition, section: 0), at: .centeredHorizontally, animated: true)
+    @IBAction func minusBarButton(_ sender: Any) {
+        if currentRowIndex > 0 {
+            currentRowIndex -= 1
+            collectionView.scrollToItem(at: IndexPath(item: currentRowIndex, section: 0), at: .centeredHorizontally, animated: true)
+        }
+    }
+    @IBAction func plusBarButton(_ sender: UIBarButtonItem) {
+        if currentRowIndex < model?.drinks.count ?? 0 {
+            currentRowIndex += 1
+            collectionView.scrollToItem(at: IndexPath(item: currentRowIndex, section: 0), at: .centeredHorizontally, animated: true)
+        }
     }
     let linkString = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin"
-    var currentRowPosition = 0
     
     var model: Drinks? {
         didSet {
             DispatchQueue.main.async {
-                self.getAllImages()
                 self.collectionView.reloadData()
             }
         }
     }
     
-    var imageCache = NSCache<NSString, UIImage>()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
 //        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        collectionView?.register(UINib(nibName: CollectionViewCell.reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: CollectionViewCell.reuseIdentifier)
-        
-        if let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.scrollDirection = UICollectionView.ScrollDirection.horizontal
-        }
+        collectionView?.register(UINib(nibName: CollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: CollectionViewCell.identifier)
         getData()
-
+        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.scrollDirection = .horizontal
+        }
     }
     
     func getData() {
+        print("downloading drinks list")
         guard let url = URL(string: linkString) else { return }
         
         // background queue
@@ -63,37 +65,8 @@ class CollectionViewController: UICollectionViewController {
         }
         task.resume()
     }
-    
-    func getAllImages() {
-        guard let drinks = model?.drinks else {
-            return
-        }
-        for drink in drinks {
-            let imageLink = drink.strDrinkThumb
-            guard let url = URL(string: imageLink) else { return }
-            DispatchQueue.global(qos: .userInitiated).async {
-                guard let data = try? Data(contentsOf: url) else { return }
-                let image = UIImage(data: data)
-                self.imageCache.setObject(image!, forKey: imageLink as NSString)
-            }
-        }
-    }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -101,15 +74,12 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.reuseIdentifier, for: indexPath) as? CollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell else {
             return UICollectionViewCell()
         }
-        //        cell.backgroundColor = UIColor(red: randColor(), green: randColor(), blue: randColor(), alpha: 1)
-        let drink = model?.drinks[indexPath.row]
-        if let thumb = drink?.strDrinkThumb {
-            let cellImage: UIImage? = imageCache.object(forKey: thumb as NSString)
-            cell.configure(drink: drink, withImage: cellImage)
-        }
+        
+//        cell.backgroundColor = UIColor(red: randColor(), green: randColor(), blue: randColor(), alpha: 1)
+        cell.configure(drink: model?.drinks[indexPath.row])
         return cell
     }
     
@@ -118,10 +88,19 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func randColor() -> CGFloat {
-        return CGFloat.random(in: 0...255) / 255
-    }
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        currentRowPosition = collectionView.indexPathsForVisibleItems.last?.row ?? 0
+        return CGFloat.random(in: 0...1)
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let detailsVC = storyboard?.instantiateViewController(identifier: "DetailsViewController") as? DetailsViewController else {
+            return
+        }
+        detailsVC.configure(drink: model?.drinks[indexPath.row])
+        navigationController?.pushViewController(detailsVC, animated: true)
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        currentRowIndex = collectionView.indexPathsForVisibleItems.last?.row ?? 0
+        print(currentRowIndex)
+    }
 }

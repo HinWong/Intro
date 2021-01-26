@@ -37,7 +37,7 @@ class ImageViewController: UIViewController {
     }
     
     func fetchImage() {
-        guard let imageURL = imageURL else { fatalError() }
+        guard let imageURL = imageURL else { return }
         
         DispatchQueue.global(qos: .userInitiated).async {
             let downloadedData = try? Data(contentsOf: imageURL)
