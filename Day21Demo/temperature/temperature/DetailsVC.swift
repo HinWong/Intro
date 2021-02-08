@@ -29,3 +29,8 @@ enum TempScale: String {
     case farenheit = "F"
     case kelvin = "K"
 }
+
+struct Profile: Decodable {
+    let name: String?
+    let someNum: Int?
+}

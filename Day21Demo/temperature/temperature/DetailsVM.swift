@@ -10,6 +10,7 @@ import Foundation
 class TempDetailsVM {
     var temp: Double
     var scale: TempScale
+    var resourceString: String?
     
     init(temp: Double, scale: TempScale) {
         self.temp = temp

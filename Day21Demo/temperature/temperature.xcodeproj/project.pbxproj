@@ -17,6 +17,7 @@
 		9E94F32125D17F5F006FCB10 /* temperatureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E94F32025D17F5F006FCB10 /* temperatureUITests.swift */; };
 		9E94F33225D17F9F006FCB10 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E94F33125D17F9F006FCB10 /* DetailsVC.swift */; };
 		9E94F33725D1858E006FCB10 /* DetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E94F33625D1858E006FCB10 /* DetailsVM.swift */; };
+		9E94F33F25D1C639006FCB10 /* mockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E94F33E25D1C639006FCB10 /* mockData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		9E94F32225D17F5F006FCB10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E94F33125D17F9F006FCB10 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		9E94F33625D1858E006FCB10 /* DetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVM.swift; sourceTree = "<group>"; };
+		9E94F33E25D1C639006FCB10 /* mockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				9E94F31525D17F5F006FCB10 /* temperatureTests.swift */,
+				9E94F33E25D1C639006FCB10 /* mockData.json */,
 				9E94F31725D17F5F006FCB10 /* Info.plist */,
 			);
 			path = temperatureTests;
@@ -247,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E94F33F25D1C639006FCB10 /* mockData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

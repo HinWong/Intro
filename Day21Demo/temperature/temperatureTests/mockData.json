@@ -1,0 +1,10 @@
+[
+    {
+        "name": "Name test 1",
+        "someNum": 1
+    },
+    {
+        "name": "Name test 2",
+        "someNum": 2
+    },
+]
