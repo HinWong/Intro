@@ -8,14 +8,20 @@
 import Foundation
 
 class Example {
-    
+    /// TDD: test driven development
+    /// RED- GREEN- REFACTOR
+    /// write tests first, have them fail
+    /// write code, have tests pass
+    /// refactor
+    /// test coverage: high
+    /// Unit test: test singular functionalities
     func sum(num1: Int, num2: Int) -> Int {
         return num1 + num2
     }
     
     func isPrime(num: Int) -> Bool {
 
-        return false
+        return true
     }
     
     func splitSentenceIntoArray(sentence: String) -> [String] {

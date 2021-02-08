@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Foundations.xcscheme_^#shared#^_</key>
+		<key>temperature.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,17 +12,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>9EDDD9DE25AB874A00BC096F</key>
+		<key>9E94F2FA25D17F5E006FCB10</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9EDDD9F425AB874B00BC096F</key>
+		<key>9E94F31025D17F5F006FCB10</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9EDDD9FF25AB874B00BC096F</key>
+		<key>9E94F31B25D17F5F006FCB10</key>
 		<dict>
 			<key>primary</key>
 			<true/>
