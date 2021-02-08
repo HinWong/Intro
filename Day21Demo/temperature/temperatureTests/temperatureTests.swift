@@ -40,5 +40,17 @@ class temperatureTests: XCTestCase {
         XCTAssert(containsScale)
     }
 
+    func testGetData() {
+        let promise = expectation(description: "temp will be 50")
+        var fetchedData = 0.0
+        sut?.getData(completion: { (data) in
+            fetchedData = data
+            promise.fulfill()
+        })
+        
+        wait(for: [promise], timeout: 4)
+        XCTAssert(fetchedData == 50, "Temp \(fetchedData) should be 50")
+        XCTAssertNotNil(fetchedData, "Fetched data should not be nil")
+    }
 
 }

@@ -23,4 +23,11 @@ class TempDetailsVM {
     func convertToCelcius() {
         
     }
+    
+    func getData(completion: @escaping (Double) -> ()) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 2.0) {
+            let data = 50.0
+            completion(data)
+        }
+    }
 }
