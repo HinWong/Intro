@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CollectionViewCell" customModule="drinks" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="343" height="240"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="343" height="240"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hug-2Q-ZQm">
+                        <rect key="frame" x="10" y="209.5" width="323" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iaz-qS-sls">
+                        <rect key="frame" x="10" y="10" width="323" height="189.5"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" red="1" green="0.98440684960000002" blue="0.43669607329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Hug-2Q-ZQm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="15m-9J-AAQ"/>
+                <constraint firstAttribute="bottom" secondItem="Hug-2Q-ZQm" secondAttribute="bottom" constant="10" id="M5e-Fr-1Jq"/>
+                <constraint firstItem="iaz-qS-sls" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="O94-dT-yWE"/>
+                <constraint firstItem="iaz-qS-sls" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="cxd-9K-UeB"/>
+                <constraint firstAttribute="trailing" secondItem="Hug-2Q-ZQm" secondAttribute="trailing" constant="10" id="nzs-ra-hVe"/>
+                <constraint firstAttribute="trailing" secondItem="iaz-qS-sls" secondAttribute="trailing" constant="10" id="uHe-2m-G7H"/>
+                <constraint firstItem="Hug-2Q-ZQm" firstAttribute="top" secondItem="iaz-qS-sls" secondAttribute="bottom" constant="10" id="y9c-j7-HZE"/>
+            </constraints>
+            <size key="customSize" width="343" height="240"/>
+            <connections>
+                <outlet property="drinkImage" destination="iaz-qS-sls" id="gGp-gA-ZfE"/>
+                <outlet property="drinkName" destination="Hug-2Q-ZQm" id="fyH-qr-MV3"/>
+            </connections>
+            <point key="canvasLocation" x="-94.927536231884062" y="56.25"/>
+        </collectionViewCell>
+    </objects>
+</document>

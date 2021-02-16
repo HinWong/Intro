@@ -1,0 +1,117 @@
+import Foundation
+
+
+// MARK: - EXAMPLES
+/// Ways to print variables
+func printNumber(inputNumber: Int) {
+    print("Your number is: ", inputNumber)
+    print("Your number is: \(inputNumber)")
+}
+
+func addFiveTo(inputNumber: Int) -> Int {
+    /// use 'var' if your variable changes
+    var result = 0
+    result = inputNumber + 5
+    return result
+}
+
+func isEven(inputNumber: Int) -> Bool {
+    return inputNumber % 2 == 0
+}
+
+func loopExample(targetNum: Int) {
+    /// loop from 1 to targetNum
+    for num in 1...targetNum {
+        print(num)
+    }
+}
+
+
+// MARK: - QUESTIONS
+func isDivisibleByThree(inputNumber: Int) -> Bool {
+    if inputNumber % 3 == 0{
+        return true
+    }
+    return false
+}
+
+print(isDivisibleByThree(inputNumber: 7))
+
+func sumOfThreeNumbers(firstNum: Int, secondNum: Int, thirdNum: Int) -> Int {
+  return firstNum + secondNum + thirdNum
+}
+
+print(sumOfThreeNumbers(firstNum: 2, secondNum: 3, thirdNum: 4))
+
+/// divisible by 3 or 5 but not both
+func fizzBuzz(num: Int) -> Bool {
+  if num % 3 == 0 && num % 5 == 0{
+    return false
+  } else if num % 3 == 0 {
+    return true
+  } else if num % 5 == 0 {
+    return true
+  } else {
+    return false
+  }
+}
+
+print(fizzBuzz(num: 15))
+
+/// sum all numbers from 1 to target
+func sumFromOne(targetEndNum: Int) -> Int {
+  var sum = 0
+  for num in 1...targetEndNum {
+        sum += num
+    }
+  return sum
+}
+
+print(sumFromOne(targetEndNum: 5))
+
+/// sum only even numbers
+func sumEvenFromOne(targetEndNum: Int) -> Int {
+  var sum = 0
+  for num in 1...targetEndNum {
+    if num % 2 == 0 {
+      sum += num
+    }
+  }
+  return sum
+}
+
+print(sumEvenFromOne(targetEndNum: 4))
+
+/// loop from 1 to target, sum all numbers that returns true for fizzbuzz
+func sumFizzBuzz(targetEndNum: Int) -> Int {
+  var sum = 0
+  for num in 1...targetEndNum {
+    if fizzBuzz(num: num) {
+      sum += num
+    }
+  }
+  return sum
+}
+
+print(sumFizzBuzz(targetEndNum: 15))
+
+func isPrime(num: Int) -> Bool {
+  for i in 2...num/2 {
+    if num % i == 0 {
+      return false
+    } 
+
+  }
+  return true
+}
+
+print(isPrime(num: 11))
+
+/// Take average of two numbers, if there is a decimal place, round up
+/// Input 5 and 6 will return 6
+func averageTwoNumberRoundUp(firstNum: Int, secondNum: Int) -> Int {
+  var average = ceil(Double(firstNum + secondNum)/2)
+  return Int(average)
+}
+
+print(averageTwoNumberRoundUp(firstNum: 5, secondNum: 6))

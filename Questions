@@ -1,0 +1,34 @@
+What was a difficult technical challenge you have faced?
+Class vs struct (mutating function)
+Multithreading with GCD
+Extensions
+Array vs Set vs Dictionary
+Unwrapping Optionals
+Access modifiers: open, public, internal, fileprivate, private
+Tableview/collectionView: delegate and datasource 
+Landscape vs portrait: size classes
+Parsing JSON, custom keys
+URLSession
+Autolayout and constraints
+Protocol inheritance / protocol composition
+UITapGestureRecognizer
+UIView vs UIViewController
+Drawing Views
+Frame vs bounds
+IBDesignable, IBInspectable
+Ways to do animation
+Generics
+Enum associated and raw values
+Passing data between view controllers
+CoreLocation and MapKit
+ARC
+Memory leak, when is it likely to occur
+Computed properties, property observers
+Types of closures
+Installing a pod
+What are comparable/hashable protocols
+How do you use core data
+Design Patterns: singleton
+Design Patterns: delegation
+Design Patterns: MVC
+Design Patterns: MVVM
